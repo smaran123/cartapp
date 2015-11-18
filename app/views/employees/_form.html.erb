@@ -1,0 +1,17 @@
+<%= form_for @employee do |f| %>
+<div class="field">
+<%= f.label :name %>
+<%= f.text_field :name %>
+</div>
+  <%#= f.collection_select :skill_ids, Skill.all, :id, :name, {}, 
+    {:multiple => true, class: 'select2 '} %>
+<% for skill in Skill.all %>
+<%= check_box_tag "employee[skill_ids][]",skill.id, @employee.skills.include?(skill) %>
+<%= skill.name %>
+<%end%>
+<div class="field">
+<%= f.submit %>
+</div>
+
+
+<% end %>

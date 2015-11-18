@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103175215) do
+ActiveRecord::Schema.define(version: 20151118130056) do
+
+  create_table "employ_skills", force: :cascade do |t|
+    t.integer  "employee_id", limit: 4
+    t.integer  "skill_id",    limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "employee_skills", force: :cascade do |t|
+    t.integer  "employee_id", limit: 4
+    t.integer  "skill_id",    limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -19,6 +39,12 @@ ActiveRecord::Schema.define(version: 20151103175215) do
     t.decimal  "price",                     precision: 10
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
