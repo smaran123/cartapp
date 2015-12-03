@@ -1,0 +1,12 @@
+<% @employees.each do |employee| %>
+<div>
+Employee:<%= employee.name %><br/>
+<%#= employee.skill_ids%>
+<% for skill in employee.skills %>
+<%= skill.name %>
+<%end%>
+<%= link_to "Edit",edit_employee_path(employee), :class => "btn btn-info" %>
+<%= link_to "Show",employee_path(employee), :class => "btn btn-success" %>
+<%= link_to "Delete",employee_path(employee),:method =>:delete, :data=>{:confirm=>"are you sure"}, :class => "btn btn-danger"%>
+</div>
+<%end%>
