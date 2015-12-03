@@ -1,6 +1,6 @@
 class CartController < ApplicationController
 
-before_action :authenticate_user! , :except => [:index]
+#before_action :authenticate_user! , :except => [:index]
 	def index
 		if session[:cart] then
 			@cart = session[:cart]
